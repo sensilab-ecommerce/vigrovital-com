@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VigroVital T-Powr – for menn over 40 som tar tak i overkroppen</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- FONT SUBSTITUTE: Figtree stands in for the PDP's Gilroy-style face until the real font name is confirmed. -->
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TOKENS
+   Brand palette (sampled from vigrovital.com/no/t-powr) mapped
+   onto the reference page's light/dark section rhythm.
+   ========================================================= */
+:root{
+  --bg-dark:#080812;      /* PDP page background → reference dark photo bands */
+  --navy:#0F2240;         /* PDP navy → reference green gradient bands */
+  --navy-2:#0E192E;
+  --orange:#F5781C;       /* PDP orange → reference CTA buttons, ticks, top bar */
+  --orange-deep:#DB6D20;  /* PDP stripe orange → headings on white, card borders */
+  --warm-line:#542509;
+  --white:#FFFFFF;
+  --grey-bg:#F4F5F8;      /* reference #F6F6F6 grey sections */
+  --tint-bg:#E6EBF3;      /* reference pale-green expert section */
+  --ink:#141A2A;          /* headings on light */
+  --ink-2:#4A5163;        /* body copy on light (reference grey body) */
+  --line:#D9DDE6;
+  --font:"Figtree","Helvetica Neue",Arial,system-ui,sans-serif;
+  --w-wide:900px;         /* reference package/expert/3-col width */
+  --w-main:806px;         /* reference hero/intro width */
+  --w-text:765px;         /* reference problem/cards width */
+  --w-faq:692px;          /* reference FAQ width */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);font-size:15.5px;line-height:1.5;color:var(--ink-2);background:var(--white)}
+img{max-width:100%;display:block}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{color:var(--ink);overflow-wrap:break-word;hyphens:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.c{margin:0 auto;padding:0 20px}
+.c-wide{max-width:calc(var(--w-wide) + 40px)}
+.c-main{max-width:calc(var(--w-main) + 40px)}
+.c-text{max-width:calc(var(--w-text) + 40px)}
+.c-faq{max-width:calc(var(--w-faq) + 40px)}
+.center{text-align:center}
+
+/* CTA — reference: 384×49, radius 6, uppercase bold 15px, drop shadow */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:395px;min-height:49px;padding:12px 24px;border-radius:6px;background:var(--orange);color:var(--bg-dark);font-weight:800;font-size:15px;letter-spacing:.01em;text-transform:uppercase;text-decoration:none;box-shadow:0 3px 7px rgba(0,0,0,.22);transition:background .15s}
+.btn:hover{background:#ff8a33}
+.cta-wrap{text-align:center;margin-top:30px}
+
+/* Image placeholders */
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:12px;line-height:1.35;color:#5b6274;background:repeating-linear-gradient(45deg,#E9ECF2 0 10px,#F2F4F8 10px 20px);border:1.5px dashed var(--orange-deep);overflow:hidden}
+.ph b{display:block;color:var(--orange-deep);font-size:13px;margin-bottom:3px}
+.ph.dk{background:repeating-linear-gradient(45deg,#0E192E 0 10px,#122847 10px 20px);color:#c9cfdc}
+.ph.dk b{color:var(--orange)}
+.round{border-radius:50%}
+.gap{border:2px dashed var(--orange-deep);background:#FFF4EC;color:#7a3a0c;border-radius:8px;padding:12px 14px;font-size:13.5px;line-height:1.45;margin-top:14px}
+.gap strong{color:var(--orange-deep)}
+
+/* ============ 1. Announcement bar (ref 38px, gold) ============ */
+.ann{background:var(--orange);color:var(--bg-dark);font-size:12px;font-weight:600;text-align:center;padding:10px 16px;line-height:1.4}
+
+/* ============ 2. Nav (ref 64px, light bar, centred logo) ============ */
+.nav{background:var(--bg-dark);color:#fff}
+.nav-in{max-width:1440px;margin:0 auto;height:64px;padding:0 28px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;font-size:12px;font-weight:600}
+.nav ul.r{justify-content:flex-end}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--orange)}
+.nav-logo{grid-template-columns:1fr;justify-items:center}
+.logo-ph{width:150px;height:44px;border-radius:4px;font-size:11px;padding:4px}
+@media(max-width:860px){.nav ul{display:none}.nav-in{grid-template-columns:1fr;justify-items:center;height:58px}}
+
+/* ============ 3. Hero (ref 470px, photo bg, text left / product right) ============ */
+.hero{position:relative;margin-top:0;background:var(--bg-dark);overflow:hidden}
+.hero-bg{position:absolute;inset:0;border:0;border-radius:0;align-items:flex-end;justify-content:flex-start;padding:12px 16px;font-size:11px}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,18,.92) 0%,rgba(8,8,18,.75) 45%,rgba(8,8,18,.15) 100%);pointer-events:none}
+.hero-in{position:relative;z-index:1;max-width:var(--w-main);margin:0 auto;min-height:470px;display:grid;grid-template-columns:420px 1fr;gap:30px;align-items:center}
+.hero-txt{padding:40px 0}
+.hero h1{color:#fff;font-size:31px;line-height:1.28;font-weight:700;letter-spacing:-.005em}
+.hero cite{display:block;margin-top:10px;font-style:normal;font-size:12.5px;color:#c9cfdc}
+.hero .lead{margin-top:16px;color:#fff;font-size:15px;line-height:1.65}
+.hero .lead b{font-weight:800}
+.hero .btn{margin-top:22px}
+.hero-prod{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center}
+.hero-prod .ph{width:262px;height:430px;border-radius:10px}
+.badge{position:absolute;left:calc(50% + 70px);top:43%;width:132px;height:132px;border-radius:50%;background:var(--orange);color:var(--bg-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;line-height:1.05;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.badge .b1{font-size:14px}
+.badge .b2{font-size:27px;margin:2px 0}
+.badge .b3{font-size:12px;font-weight:700;line-height:1.2}
+
+/* ============ 4. "Featured in" row → trust row (ref 5 boxes 132×88) ============ */
+.trust{padding:24px 20px 46px;text-align:center}
+.trust h2{font-size:22px;font-weight:700}
+.trust-row{display:flex;justify-content:center;gap:6px;margin-top:14px;flex-wrap:wrap}
+.trust-box{width:132px;height:88px;border:1px solid #EEF0F4;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;font-weight:800;font-size:13px;line-height:1.2;color:var(--ink)}
+.trust-box span{display:block;font-size:11.5px;font-weight:600;color:var(--ink-2);margin-top:3px}
+.trust-box .big{font-size:22px;color:var(--orange-deep)}
+
+/* ============ 5. Introducing (ref image 300 / text 400) ============ */
+.intro{padding:0 0 52px}
+.intro-in{display:grid;grid-template-columns:300px 400px;gap:6px 60px;justify-content:center;align-items:center}
+.intro .ph{height:440px;border-radius:6px}
+.intro h2{font-size:48px;line-height:1.05;font-weight:400;color:var(--navy)}
+.intro h2 b{display:block;font-weight:800}
+.checks{list-style:none;padding:0;margin:14px 0 0}
+.checks li{position:relative;padding-left:27px;font-size:15.5px;line-height:1.35;margin-bottom:9px;color:var(--ink-2)}
+.checks li::before{content:"";position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23080812' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.intro .btn{margin-top:20px}
+
+/* ============ 6. 3-col band (ref green gradient, 524px) → reviews ============ */
+.band3{background:linear-gradient(90deg,var(--navy) 0%,#1A3460 50%,var(--navy) 100%);padding:48px 20px 44px;color:#fff}
+.band3-in{max-width:var(--w-wide);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0 20px;text-align:center}
+.band3 .ph{width:195px;height:238px;margin:0 auto;border-radius:15px}
+.band3 .stars{color:var(--orange);letter-spacing:2px;font-size:15px;margin-top:12px}
+.band3 h3{color:#fff;font-size:19px;line-height:1.3;font-weight:800;margin-top:4px}
+.band3 p{font-size:13px;line-height:1.5;margin-top:6px;color:#e6e9f0;padding:0 10px}
+.band3 .who{font-size:13px;font-weight:700;font-style:italic;margin-top:8px;color:#fff}
+.band3 .src{display:block;font-size:11.5px;font-weight:500;font-style:italic;color:#aeb6c8;margin-top:2px}
+.band3-sum{text-align:center;margin-top:26px;font-size:14px;color:#c9cfdc}
+.band3-sum b{color:#fff}
+
+/* ============ 7. Problem (ref grey bg, 765 col) ============ */
+.problem{background:var(--grey-bg);padding:40px 0 34px}
+.problem h2{font-size:30px;line-height:1.25;font-weight:800;color:var(--orange-deep);text-align:center;max-width:600px;margin:0 auto}
+.problem .sub{font-size:20px;font-weight:800;color:var(--ink);text-align:center;margin-top:4px}
+.fig{margin:16px 0 22px;border:1.5px solid #4B5568;background:#fff;padding:12px}
+.fig .ph{height:205px}
+.fig figcaption{text-align:center;font-weight:700;color:#6b6f7c;font-size:15px;margin-top:10px;letter-spacing:.01em}
+.prose p{font-size:15.5px;line-height:1.4;margin-bottom:18px;color:var(--ink-2)}
+.prose p:last-child{margin-bottom:0}
+.prose b{color:var(--ink)}
+
+/* ============ 8. Two bordered story cards (ref 765 wide) ============ */
+.cards{padding:22px 0 0;background:#fff}
+.scard{display:grid;border:1.5px solid var(--orange-deep);border-radius:15px;overflow:hidden;background:#fff}
+.scard + .scard{margin-top:22px}
+.scard.a{grid-template-columns:1fr 188px}
+.scard.b{grid-template-columns:190px 1fr}
+.scard .ph{border:0;border-radius:0;min-height:100%}
+.scard .txt{padding:30px 34px}
+.scard h2{font-size:28px;line-height:1.2;font-weight:500;color:var(--orange-deep);margin-bottom:16px}
+.scard h2 b{font-weight:800}
+.scard.b h2{font-weight:800}
+.scard p{font-size:15.5px;line-height:1.35;color:var(--ink);margin-bottom:18px}
+.scard p:last-child{margin-bottom:0}
+.scard p.strong{font-weight:700}
+
+/* ============ 9. Warning band → lifestyle checklist (ref yellow, 505px) ============ */
+.warn{background:var(--orange);margin-top:0;padding:26px 20px 46px;color:var(--bg-dark);text-align:center}
+.cards + .warn{margin-top:0}
+.cards{padding-bottom:0}
+.warn-pill{display:inline-flex;align-items:center;gap:18px;background:#fff;border-radius:28px;padding:14px 34px;min-width:476px;justify-content:center;text-align:left}
+.warn-pill svg{width:72px;height:66px;flex:none}
+.warn-pill h2{font-size:28px;line-height:1.1;font-weight:800;color:var(--bg-dark)}
+.warn-pill h2 span{display:block;font-weight:400}
+.warn .intro-l{font-size:15px;margin-top:18px;font-weight:500}
+.ls{display:grid;grid-template-columns:repeat(2,minmax(0,320px));justify-content:center;gap:2px 18px;margin:20px auto 0;text-align:left;max-width:680px}
+.ls label{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:700;line-height:1.3;padding:4px 0;cursor:pointer}
+.ls input{appearance:none;-webkit-appearance:none;margin:0;width:19px;height:19px;flex:none;border-radius:4px;background:#2F5B9A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h11M12 7l5 5-5 5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;cursor:pointer}
+.ls input:checked{background:#0F2240 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23F5781C' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.warn .res{max-width:620px;margin:20px auto 0;font-size:15px;line-height:1.5}
+.warn .res b{font-weight:800}
+.warn .next{margin-top:24px;font-size:15px;font-weight:500}
+
+/* ============ 10. Introducing 2 + icon grid ============ */
+.intro2{padding:34px 0 40px}
+.intro2 h2{font-size:33px;line-height:1.25;font-weight:400;color:var(--ink-2);text-align:center;max-width:750px;margin:0 auto}
+.intro2 h2 b{font-weight:800;color:var(--orange-deep)}
+.i2-row{display:grid;grid-template-columns:326px 414px;gap:24px;justify-content:center;margin-top:24px;align-items:start}
+.i2-row .ph{height:374px;border-radius:15px}
+.i2-row p{font-size:15px;line-height:1.35;color:var(--ink);margin-bottom:16px}
+.i2-row p.b{font-weight:700}
+.icons{display:grid;grid-template-columns:150px 263px 150px;justify-content:center;gap:0 95px;margin-top:40px;align-items:center}
+.icol{display:grid;gap:30px}
+.ic{text-align:center}
+.ic svg{width:50px;height:50px;margin:0 auto 6px;display:block}
+.ic h3{font-size:15px;font-weight:800;color:var(--ink)}
+.ic p{font-size:13.5px;line-height:1.35;color:var(--ink-2);margin-top:2px}
+.icons .prod{height:490px;border-radius:10px}
+
+/* ============ 11. Offer section (replaces buybox) ============ */
+.ship{background:var(--orange-deep);color:#fff;text-align:center;font-weight:800;font-size:25px;line-height:1.25;padding:18px 20px}
+.offer{background:var(--grey-bg);padding:36px 20px 52px}
+.stepper{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);text-align:center;position:relative}
+.stepper::before{content:"";position:absolute;left:0;right:0;bottom:17px;height:5px;background:#E1E4EA;border-radius:3px}
+.stepper::after{content:"";position:absolute;left:0;width:33.3%;bottom:17px;height:5px;background:var(--navy);border-radius:3px}
+.step{position:relative;z-index:1;font-size:14px;color:#555b6b}
+.step span{display:block;min-height:2.6em;display:flex;align-items:flex-end;justify-content:center;line-height:1.3;padding:0 4px}
+.step i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;margin:10px auto 0;border-radius:50%;background:#fff;border:2px solid #E1E4EA;font-style:normal;font-size:15px;color:#333}
+.step.on i{background:var(--navy);border-color:var(--navy);color:#fff}
+.offer h2{font-size:30px;font-weight:800;color:#555b6b;text-align:center;margin-top:44px}
+.pcard{width:300px;margin:28px auto 0;border:3px solid var(--orange);border-radius:12px;background:#fff;overflow:hidden;text-align:center}
+.pcard-h{background:var(--orange);color:var(--bg-dark);font-weight:800;font-size:19px;padding:10px;text-transform:uppercase}
+.pcard-img{position:relative;padding:18px 18px 0}
+.pcard-img .ph{height:200px;border-radius:6px}
+.pcard-img .disc{position:absolute;top:8px;right:8px;width:80px;height:80px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:19px;line-height:1.05;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.pcard-img .disc span{font-size:10px;font-weight:700;letter-spacing:.04em;margin-top:2px}
+.pname{margin:16px 16px 0;font-size:15px;font-weight:700;color:var(--ink)}
+.pcard .btn{width:calc(100% - 32px);margin:14px 16px 0;font-size:17px}
+.pcard .mini{list-style:none;margin:14px 16px 18px;padding:12px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pcard .mini li{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;font-weight:700;line-height:1.25;color:var(--ink)}
+.pcard .mini svg{width:24px;height:24px}
+.tbox{max-width:760px;margin:34px auto 0;background:#fff;border-radius:14px;padding:22px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px 24px;align-items:center}
+.titem{display:flex;align-items:center;gap:12px;font-size:12.5px;line-height:1.35;color:var(--ink-2)}
+.titem svg{width:34px;height:34px;flex:none}
+.titem b{display:block;font-size:14px;color:var(--ink)}
+.pay{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:14px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink)}
+.pay .logos{display:flex;gap:8px}
+.pay .logos i{display:flex;align-items:center;justify-content:center;width:58px;height:36px;border:1.5px dashed var(--orange-deep);border-radius:6px;background:#FFF4EC;font-style:normal;font-size:10.5px;font-weight:700;color:var(--orange-deep)}
+
+
+/* ============ 12. Dark photo band (ref 220px) ============ */
+.dband{position:relative;background:var(--bg-dark);overflow:hidden}
+.dband .ph{position:absolute;right:0;top:0;bottom:0;width:48%;border:0;border-radius:0;align-items:flex-end;justify-content:flex-end;font-size:11px}
+.dband .ph::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg-dark),rgba(8,8,18,0) 45%);pointer-events:none}
+.dband-in{position:relative;z-index:1;max-width:var(--w-wide);margin:0 auto;min-height:220px;padding:30px 20px;display:flex;flex-direction:column;justify-content:center}
+.dband .k{color:var(--orange);font-size:28px;font-weight:700;line-height:1.2}
+.dband h2{color:#fff;font-size:33px;line-height:1.25;font-weight:700;max-width:540px}
+
+/* ============ 13. Benefit rows (ref thumb 90 / text, 665 wide) ============ */
+.benefits{padding:36px 20px 44px}
+.benefits .intro-b{max-width:620px;margin:0 auto;text-align:center;font-weight:700;font-size:16px;line-height:1.35;color:var(--ink)}
+.brows{max-width:665px;margin:20px auto 0;display:grid;gap:22px}
+.brow{display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:start}
+.brow .ph{width:90px;height:90px;border-radius:4px;font-size:9.5px;padding:4px}
+.brow .ph b{font-size:10px}
+.brow h3{font-size:16px;font-weight:800;color:var(--orange-deep)}
+.brow p{font-size:15.5px;line-height:1.38;color:var(--ink);margin-top:2px}
+
+/* ============ 14. Expert section → Laget i Norge (ref pale-green) ============ */
+.expert{background:var(--tint-bg);padding:30px 20px 40px}
+.expert h2{text-align:center;font-size:33px;line-height:1.2;font-weight:800;color:var(--orange-deep)}
+.expert h2 span{display:block;font-weight:400;color:var(--ink)}
+.exp-in{max-width:868px;margin:24px auto 0;display:grid;grid-template-columns:348px 1fr;gap:14px;align-items:start}
+.exp-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.exp-imgs .main{grid-column:1/-1;height:326px;border-radius:12px}
+.exp-imgs .tall{grid-row:span 2;height:300px;border-radius:12px}
+.exp-imgs .sm{height:145px;border-radius:12px}
+.exp-card{background:#fff;border-radius:14px;padding:20px 20px 24px}
+.exp-card .k{font-size:19px;line-height:1.3;font-weight:800;color:var(--orange-deep);margin-bottom:16px}
+.exp-card p{font-size:15px;line-height:1.45;margin-bottom:16px;color:var(--ink-2)}
+
+/* ============ 15. Ingredient grid (ref circles 172, 3 cols × 290) ============ */
+.ingr{padding:30px 20px 46px}
+.ingr h2{text-align:center;font-size:31px;line-height:1.3;font-weight:800;color:var(--orange-deep);max-width:600px;margin:0 auto}
+.igrid{max-width:870px;margin:36px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 0}
+.ing{text-align:center;padding:0 12px}
+.ing .ph{width:172px;height:172px;margin:0 auto 14px;font-size:11px}
+.ing h3{font-size:20px;font-weight:800;color:#4d5262;line-height:1.3}
+.ing .amt{font-size:14px;font-weight:700;color:var(--orange-deep);margin:2px 0 6px}
+.ing ul{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.6;color:#5b6070}
+.ing li + li{margin-top:4px}
+
+/* ============ 16. "Ready" band → Slik bruker du (ref green band) ============ */
+.ready{background:linear-gradient(90deg,var(--navy),#1A3460 55%,var(--navy));padding:52px 20px;color:#fff}
+.ready-in{max-width:820px;margin:0 auto;display:grid;grid-template-columns:375px 1fr;gap:56px;align-items:center}
+.combo{position:relative;height:375px}
+.combo .p{position:absolute;left:0;top:30px;width:200px;height:330px;border-radius:10px;z-index:2}
+.combo .c1,.combo .c2{position:absolute;right:0;width:185px;height:185px;border:4px solid #fff}
+.combo .c1{top:0}.combo .c2{bottom:0}
+.ready h2{color:#fff;font-size:30px;line-height:1.25;font-weight:800;margin-bottom:12px}
+.ready p{font-size:15px;line-height:1.5;margin-bottom:18px;color:#e6e9f0}
+.ready p b{color:#fff}
+
+/* ============ 17. FAQ (ref 692 wide, green rules) ============ */
+.faq{padding:40px 20px 30px}
+.faq h2{text-align:center;font-size:28px;line-height:1.35;font-weight:800;color:var(--ink)}
+.faq h2 span{display:block;color:var(--orange-deep)}
+.acc{max-width:var(--w-faq);margin:30px auto 0}
+.acc details{border-bottom:1.5px solid var(--orange-deep)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 12px;font-weight:700;font-size:15px;color:var(--ink)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";color:var(--orange-deep);font-size:20px;font-weight:400;line-height:1}
+.acc details[open] summary::after{content:"–"}
+.acc .a{padding:6px 12px 18px;font-size:15px;line-height:1.5;color:var(--ink)}
+.acc .a p + p,.acc .a ul + p{margin-top:12px}
+.acc .a ul{margin:10px 0 0;padding-left:0;list-style:none}
+.acc .a li::before{content:"– "}
+.guar{text-align:center;font-size:14px;margin-top:10px;color:var(--ink-2)}
+.guar::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:3px;background:var(--orange);color:var(--bg-dark);font-weight:800;font-size:11px;margin-right:6px;vertical-align:-2px}
+
+/* ============ 18. Footer ============ */
+.foot{border-top:1px solid #EEF0F4;margin-top:40px;padding:34px 20px 0;font-size:12px;color:var(--ink-2)}
+.foot-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.foot .about{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start}
+.foot .about .ph{width:62px;height:62px;font-size:9px;padding:2px}
+.foot h4{font-size:12.5px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--orange-deep)}
+.legal{max-width:1000px;margin:34px auto 0;background:#F1F2F5;border-radius:10px 10px 0 0;padding:18px 24px 24px;text-align:center;font-size:11px;line-height:1.6;color:var(--ink-2)}
+.legal b{color:var(--ink)}
+
+/* =========================================================
+   MOBILE (reference mobile capture: everything stacks, image first)
+   ========================================================= */
+@media(max-width:760px){
+  body{font-size:15px}
+  .ann{font-size:11px;padding:8px 12px}
+  .hero{margin-top:0}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(8,8,18,.2) 0%,rgba(8,8,18,.85) 42%,rgba(8,8,18,.95) 100%)}
+  .hero-in{grid-template-columns:1fr;min-height:0;gap:0;padding:0 20px}
+  .hero-prod{order:-1;padding-top:22px}
+  .hero-prod .ph{width:190px;height:290px}
+  .badge{width:96px;height:96px;left:calc(50% + 40px);top:20%}
+  .badge .b1{font-size:11px}.badge .b2{font-size:19px}.badge .b3{font-size:10px}
+  .hero-txt{text-align:center;padding:22px 0 30px}
+  .hero h1{font-size:26px;line-height:1.25}
+  .hero .lead{font-size:14px}
+  .trust{padding:22px 20px 34px}
+  .trust h2{font-size:21px}
+  .trust-box{width:calc(50% - 3px);height:78px}
+  .intro{padding-bottom:36px}
+  .intro-in{grid-template-columns:1fr;gap:18px}
+  .intro .ph{height:300px;width:220px;margin:0 auto}
+  .intro h2{font-size:36px;text-align:center}
+  .intro .cta-wrap,.intro .btn{width:100%}
+  .band3{padding:34px 20px}
+  .band3-in{grid-template-columns:1fr;gap:34px}
+  .band3 .ph{width:250px;height:290px}
+  .problem h2{font-size:24px}
+  .problem .sub{font-size:17px}
+  .fig .ph{height:150px}
+  .scard.a,.scard.b{grid-template-columns:1fr}
+  .scard.a .ph{order:2;height:220px}
+  .scard.b .ph{height:300px}
+  .scard .txt{padding:22px 20px}
+  .scard h2{font-size:24px}
+  .warn-pill{min-width:0;width:100%;padding:12px 16px;gap:12px}
+  .warn-pill svg{width:46px;height:42px}
+  .warn-pill h2{font-size:21px}
+  .ls{grid-template-columns:1fr;max-width:340px}
+  .intro2 h2{font-size:25px}
+  .i2-row{grid-template-columns:1fr}
+  .i2-row .ph{height:260px}
+  .icons{grid-template-columns:1fr 1fr;gap:26px 16px}
+  .icons .prod{grid-column:1/-1;order:-1;height:340px;width:220px;margin:0 auto}
+  .icol{display:contents}
+  .ship{font-size:18px;padding:14px 16px}
+  .offer{padding:26px 16px 40px}
+  .step{font-size:12px}
+  .offer h2{font-size:24px;margin-top:30px}
+  .tbox{grid-template-columns:1fr;padding:18px 20px;gap:14px}
+  .pay{flex-direction:column;gap:10px}
+  .pay .logos i{width:54px}
+  .dband .ph{width:100%;opacity:.45}
+  .dband .k{font-size:22px}
+  .dband h2{font-size:25px}
+  .brow{grid-template-columns:72px 1fr;gap:14px}
+  .brow .ph{width:72px;height:72px}
+  .expert h2{font-size:25px}
+  .exp-in{grid-template-columns:1fr}
+  .exp-imgs .main{height:260px}
+  .ingr h2{font-size:24px}
+  .igrid{grid-template-columns:1fr;gap:30px}
+  .ready-in{grid-template-columns:1fr;gap:28px}
+  .combo{width:320px;height:330px;margin:0 auto}
+  .combo .p{width:170px;height:290px}
+  .combo .c1,.combo .c2{width:155px;height:155px}
+  .ready h2{font-size:25px}
+  .faq h2{font-size:22px}
+  .foot-in{grid-template-columns:1fr 1fr}
+  .foot .about{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- 1. ANNOUNCEMENT BAR -->
+<div class="ann">Produsert i Fredrikstad, Norge &nbsp;|&nbsp; Rask og diskret levering</div>
+
+<main>
+
+<!-- 3. HERO -->
+<section class="hero">
+  <div class="ph dk hero-bg" data-slot="IMG-02"><span><b>IMG-02</b> Hero-bakgrunn: mørkt treningsstudio, uskarpt, 1440×470 / mobil 390×640</span></div>
+  <div class="hero-in">
+    <div class="hero-txt">
+      <h1>Du trener hardere, men «mannepuppene» blir? Kanskje er det ikke innsatsen som mangler.</h1>
+      <cite><span style="color:#F5781C;letter-spacing:2px">★★★★★</span> 4,9 av 5 i kundevurdering</cite>
+      <p class="lead">Treningen er halve jobben. Den andre halvdelen er det kroppen får innenfra. <b>VigroVital T-Powr</b> er den nye generasjonen multi aktiv kosttilskudd, laget for menn over 40 som trener. Sink bidrar til å opprettholde normale testosteronnivåer i blodet, og vitamin B6 bidrar til regulering av hormonaktivitet.</p>
+      <a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a>
+    </div>
+    <div class="hero-prod">
+      <div class="ph dk" data-slot="IMG-03"><span><b>IMG-03</b>T-Powr-eske, frilagt<br>262×430, transparent PNG</span></div>
+      <div class="badge"><span class="b1">LAGET I</span><span class="b2">NORGE</span><span class="b3">Produsert i<br>Fredrikstad</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TRUST ROW (replaces "featured in" logos) -->
+<section class="trust">
+  <h2>Kort fortalt om VigroVital T-Powr</h2>
+  <div class="trust-row">
+    <div class="trust-box"><span class="big">12</span>ingredienser</div>
+    <div class="trust-box"><span class="big">2</span>kapsler daglig</div>
+    <div class="trust-box">Produsert i Norge<span>Fredrikstad</span></div>
+    <div class="trust-box">GMP-sertifisert<span>anlegg</span></div>
+    <div class="trust-box"><span class="big">4,9/5</span>kundevurdering</div>
+  </div>
+</section>
+
+<!-- 5. INTRODUCING -->
+<section class="intro" id="om">
+  <div class="c intro-in">
+    <div class="ph" data-slot="IMG-04"><span><b>IMG-04</b>T-Powr-eske stående, frilagt med skygge<br>300×440 / mobil 220×300</span></div>
+    <div>
+      <h2>Møt <b>VigroVital T-Powr</b></h2>
+      <ul class="checks">
+        <li>Magnesium bidrar til normal muskelfunksjon og proteinsyntese, som kan støtte muskelvedlikehold</li>
+        <li>Vitamin D bidrar til opprettholdelse av normal muskelfunksjon og normal funksjon av immunsystemet</li>
+        <li>Sink bidrar til å opprettholde normale testosteronnivåer i blodet</li>
+        <li>Vitamin B6 bidrar til regulering av hormonaktivitet</li>
+        <li>Vitamin B5 bidrar til normal energimetabolisme</li>
+        <li>Vitamin B6 bidrar til normal psykologisk funksjon og reduksjon av tretthet og utmattelse</li>
+        <li>Maca støtter hormonbalansen</li>
+      </ul>
+      <a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 3-COLUMN BAND → CUSTOMER REVIEWS (verbatim from PDP) -->
+<section class="band3">
+  <div class="band3-in">
+    <article>
+      <div class="ph dk" data-slot="IMG-05"><span><b>IMG-05</b>Livsstilsbilde, mann 40+<br>195×238, radius 15<br>(ikke anmelderen)</span></div>
+      <div class="stars" aria-label="5 av 5 stjerner">★★★★★</div>
+      <h3>Fungerer faktisk!</h3>
+      <p>Positivt Overrasket etter noen uker bruk. Gir overskudd i en hektisk hverdag og føler seg energisk og klar til dyst igjrn når det kreves.</p>
+      <div class="who">Skrevet av Gøran<span class="src">Denne anmeldelsen ble opprinnelig lagt ut på "VitaminExpress"</span></div>
+    </article>
+    <article>
+      <div class="ph dk" data-slot="IMG-06"><span><b>IMG-06</b>Livsstilsbilde, mann 40+<br>195×238, radius 15<br>(ikke anmelderen)</span></div>
+      <div class="stars" aria-label="5 av 5 stjerner">★★★★★</div>
+      <h3>Piggare</h3>
+      <p>Det kan så klart være placebo eller innbilning, men jeg synes at jeg har blitt mer våken om morgenen, våkner i tide, og i tillegg fått mer energi.</p>
+      <div class="who">Skrevet av Fred<span class="src">Verifisert kjøp. Automatisk oversatt</span></div>
+    </article>
+    <article>
+      <div class="ph dk" data-slot="IMG-07"><span><b>IMG-07</b>Livsstilsbilde, mann 30–40<br>195×238, radius 15<br>(ikke anmelderen)</span></div>
+      <div class="stars" aria-label="5 av 5 stjerner">★★★★★</div>
+      <h3>synes jeg ble veldig opplagt</h3>
+      <p>Kan være placebo men synes jeg ble veldig opplagt selv med minimalt med søvn pga nyfødt baby,så trenger det nå som høstmørket kommer!</p>
+      <div class="who">Skrevet av Benjamin,33<span class="src">Verifisert kjøp</span></div>
+    </article>
+  </div>
+  <p class="band3-sum"><b>4,9 av 5</b> i kundevurdering</p>
+</section>
+
+<!-- 7. PROBLEM (man-boobs angle, empathetic, lifestyle-first) -->
+<section class="problem">
+  <div class="c c-text">
+    <h2>Du gjør alt riktig. Så hvorfor skjer ingenting?</h2>
+    <p class="sub">Det handler ikke bare om fett og innsats</p>
+    <figure class="fig">
+      <div class="ph" data-slot="IMG-08"><span><b>IMG-08</b>Nøytral anatomi-illustrasjon av brystmuskelen (pectoralis) på en sterk, normal mannekropp. Ingen før/etter, ingen «problemkropp»<br>740×205 / mobil 320×150</span></div>
+      <figcaption>Brystet består av muskel og fett, og begge påvirkes av mer enn treningen alene</figcaption>
+    </figure>
+    <div class="prose">
+      <p>Du har tatt flere økter i uka. Du har økt vektene. Du har ryddet i kostholdet.</p>
+      <p>Likevel ser du det samme i speilet hver morgen.</p>
+      <p>Og når du kjører bryst for tredje gang denne uka, begynner du å lure: <b>Hva gjør jeg galt?</b></p>
+      <p>Svaret er sannsynligvis: ingenting.</p>
+      <p>Mange menn over 40 går i samme felle. De tror at mer trening alltid er løsningen. Så trener de enda hardere, uten at det føles som det gir mer.</p>
+      <p>Det er ikke fordi de er late. Det er ikke fordi de ikke bryr seg. Det handler ikke bare om fett og innsats.</p>
+      <p>Kroppen din er ikke bare en maskin du skal presse. Den trenger riktige <b>byggesteiner</b> for å fungere som den skal.</p>
+      <p>Og i en travel hverdag glemmer vi å gi den dem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. TWO STORY CARDS -->
+<section class="cards" id="byggesteiner">
+  <div class="c c-text">
+    <article class="scard a">
+      <div class="txt">
+        <h2>Den skjulte grunnen: <b>Du støtter ikke kroppen innenfra</b></h2>
+        <p>Du løfter tyngre…</p>
+        <p>Du spiser mer protein…</p>
+        <p>Du sover mindre enn du burde…</p>
+        <p>Du hopper over frokosten og tar en kaffe i bilen…</p>
+        <p>Du presser deg gjennom enda en uke…</p>
+        <p class="strong">…og kroppen bruker de samme byggesteinene til muskler, hormoner og energi. Hver eneste dag, uansett hvor hardt du trener.</p>
+      </div>
+      <div class="ph" data-slot="IMG-09"><span><b>IMG-09</b>Treningsbag, shaker og kaffe på kjøkkenbenken<br>188×433 / mobil 100%×220</span></div>
+    </article>
+    <article class="scard b">
+      <div class="ph" data-slot="IMG-10"><span><b>IMG-10</b>Mann 40+ gjør push-ups ute, selvsikker<br>190×464 / mobil 100%×300</span></div>
+      <div class="txt">
+        <h2>Fire byggesteiner kroppen bruker når du trener</h2>
+        <p>Dette bruker kroppen din, uansett hvor mange sett du tar:</p>
+        <p><b>Muskler:</b> Magnesium bidrar til normal muskelfunksjon og proteinsyntese, som kan støtte muskelvedlikehold. Vitamin D bidrar til opprettholdelse av normal muskelfunksjon og normal funksjon av immunsystemet.</p>
+        <p><b>Hormoner:</b> Sink bidrar til å opprettholde normale testosteronnivåer i blodet. Vitamin B6 bidrar til regulering av hormonaktivitet.</p>
+        <p><b>Energi:</b> Vitamin B5 bidrar til normal energimetabolisme.</p>
+        <p><b>Hode:</b> Magnesium bidrar til normal psykologisk funksjon.</p>
+        <p class="strong">Disse ingrediensene kan gjennom sine ulike roller samlet støtte muskelfunksjon, hormonbalanse og generell vitalitet, som er avgjørende for å håndtere aldersrelatert testosteronnedgang.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 9. WARNING BAND → LIFESTYLE CHECKLIST -->
+<section class="warn">
+  <div class="warn-pill">
+    <svg viewBox="0 0 72 66" aria-hidden="true"><rect x="6" y="4" width="50" height="58" rx="7" fill="none" stroke="#0F2240" stroke-width="5"/><path d="M16 22l5 5 9-10M16 42l5 5 9-10" fill="none" stroke="#F5781C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 23h10M38 43h10" stroke="#0F2240" stroke-width="5" stroke-linecap="round"/></svg>
+    <h2>SJEKKLISTE:<span>Gjør du det som faktisk teller?</span></h2>
+  </div>
+  <p class="intro-l">Kryss av for det som stemmer for deg den siste uken.</p>
+  <div class="ls" id="ls">
+    <label><input type="checkbox">Jeg har trent overkropp minst to ganger</label>
+    <label><input type="checkbox">Jeg har sovet 7–8 timer de fleste netter</label>
+    <label><input type="checkbox">Jeg har gjort push-ups, benkpress eller roing</label>
+    <label><input type="checkbox">Jeg har holdt alkoholen på et lavt nivå</label>
+    <label><input type="checkbox">Jeg har fått protein til de fleste måltider</label>
+    <label><input type="checkbox">Jeg har gått en tur de fleste dager</label>
+    <label><input type="checkbox">Jeg har spist mer grønt enn snacks</label>
+    <label><input type="checkbox">Jeg har drukket nok vann</label>
+    <label><input type="checkbox">Jeg har økt vekt eller antall repetisjoner</label>
+    <label><input type="checkbox">Jeg har tatt meg tid til å hente meg inn</label>
+  </div>
+  <p class="res" id="ls-res" aria-live="polite">Trening, kosthold og søvn gjør jobben. <b>Et kosttilskudd kommer i tillegg, ikke i stedet.</b></p>
+  <p class="next">Gjør du det meste riktig? Da kan det være på tide å se på det du gir kroppen innenfra…</p>
+</section>
+
+<!-- 10. INTRODUCING 2 + ICON GRID -->
+<section class="intro2">
+  <div class="c c-wide">
+    <h2><b>Møt VigroVital T-Powr:</b> tillegget til treningen din</h2>
+    <div class="i2-row">
+      <div class="ph" data-slot="IMG-11"><span><b>IMG-11</b>Mønster av T-Powr-kapsler på mørk navy flate<br>326×374, radius 15</span></div>
+      <div>
+        <p class="b">Treningen bygger. Men kroppen trenger byggesteiner for å gjøre jobben.</p>
+        <p>Magnesium bidrar til normal muskelfunksjon og proteinsyntese. Vitamin D bidrar til opprettholdelse av normal muskelfunksjon og normal funksjon av immunsystemet.</p>
+        <p>Sink bidrar til å opprettholde normale testosteronnivåer i blodet, og vitamin B6 bidrar til regulering av hormonaktivitet.</p>
+        <p>Rundt dette har vi satt sammen shilajit, bukkehornkløver og maca, tre planter med lang tradisjon.</p>
+        <p class="b">12 ingredienser. 2 kapsler om dagen. Produsert i Fredrikstad.</p>
+        <p class="b">Og dette er hva ingrediensene bidrar med:</p>
+      </div>
+    </div>
+    <div class="icons">
+      <div class="icol">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h20v8l-6 6v20h-8V22l-6-6z"/><path d="M14 16h20" stroke="#DB6D20"/></svg><h3>Sink</h3><p>Bidrar til å opprettholde normale testosteronnivåer i blodet</p></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 40h32"/><rect x="11" y="26" width="5" height="14"/><rect x="21.5" y="18" width="5" height="22"/><rect x="32" y="10" width="5" height="30" stroke="#DB6D20"/></svg><h3>Vitamin B6</h3><p>Bidrar til regulering av hormonaktivitet</p></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="6" stroke="#DB6D20"/><circle cx="10" cy="12" r="4"/><circle cx="38" cy="12" r="4"/><circle cx="24" cy="41" r="4"/><path d="M13 14.5l6 5.5M35 14.5l-6 5.5M24 30v7"/></svg><h3>Shilajit</h3><p>Støtter seksuell funksjon og utholdenhet</p></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="4" stroke="#DB6D20"/><ellipse cx="24" cy="24" rx="18" ry="7"/><ellipse cx="24" cy="24" rx="18" ry="7" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="18" ry="7" transform="rotate(120 24 24)"/></svg><h3>Selen</h3><p>Bidrar til normal spermatogenese</p></div>
+      </div>
+      <div class="ph prod" data-slot="IMG-12"><span><b>IMG-12</b>T-Powr-eske front, frilagt<br>263×490 / mobil 220×340</span></div>
+      <div class="icol">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 4L12 27h11l-3 17 16-24H25z" stroke="#DB6D20"/><path d="M6 10l4 2M42 10l-4 2M6 36l4-2M42 36l-4-2"/></svg><h3>Vitamin B5</h3><p>Bidrar til normal energimetabolisme</p></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="26" r="17"/><path d="M24 26l7-9" stroke="#DB6D20"/><path d="M14 30a10 10 0 0 1 20 0"/></svg><h3>Vitamin B6</h3><p>Bidrar til reduksjon av tretthet og utmattelse</p></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 34c0-8 6-12 12-12h4c3 0 4-3 3-6l-2-5c-1-3 2-5 5-4 5 2 8 8 8 15v12c0 4-3 6-6 6H16c-3 0-6-2-6-6z"/><path d="M20 30c3 2 7 2 10 0" stroke="#DB6D20"/></svg><h3>Magnesium</h3><p>Bidrar til normal muskelfunksjon og proteinsyntese</p></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="#0F2240" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l16 6v12c0 10-7 18-16 22-9-4-16-12-16-22V10z"/><path d="M17 24l5 5 9-10" stroke="#DB6D20"/></svg><h3>Vitamin D</h3><p>Bidrar til opprettholdelse av normal muskelfunksjon og normal funksjon av immunsystemet</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. OFFER (replaces buybox) -->
+<div class="ship">Støtt treningen innenfra. Prøv VigroVital T-Powr nå</div>
+<section class="offer">
+  <div class="stepper" aria-label="Slik bestiller du">
+    <div class="step on"><span>Trykk på knappen</span><i>1</i></div>
+    <div class="step"><span>Fyll inn skjemaet</span><i>2</i></div>
+    <div class="step"><span>Motta T-Powr i posten</span><i>3</i></div>
+  </div>
+  <h2>Slik prøver du T-Powr</h2>
+  <div class="pcard">
+    <div class="pcard-h">VigroVital T-Powr</div>
+    <div class="pcard-img">
+      <div class="ph" data-slot="IMG-13"><span><b>IMG-13</b>T-Powr-eske, frilagt<br>264×200</span></div>
+      <div class="disc">12 i 1<span>FORMULA</span></div>
+    </div>
+    <p class="pname">12 ingredienser. 2 kapsler daglig.</p>
+    <a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a>
+    <ul class="mini">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="#0F2240" stroke-width="1.8"/><circle cx="12" cy="10" r="2.6" fill="#DB6D20"/></svg><span>Produsert i Norge</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h12v9H2zM14 10h4l3 3.2V16h-7z" fill="none" stroke="#0F2240" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.8" fill="#DB6D20"/><circle cx="17" cy="17.5" r="1.8" fill="#DB6D20"/></svg><span>Rask og diskret levering</span></li>
+    </ul>
+  </div>
+  <div class="tbox">
+    <div class="titem"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 9h16v12H3zM19 13h5l4 4.3V21h-9z" fill="none" stroke="#0F2240" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="23" r="2.4" fill="#DB6D20"/><circle cx="23" cy="23" r="2.4" fill="#DB6D20"/></svg><div><b>Rask og diskret levering</b></div></div>
+    <div class="titem"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s9-7.9 9-15a9 9 0 0 0-18 0c0 7.1 9 15 9 15z" fill="none" stroke="#0F2240" stroke-width="2"/><circle cx="16" cy="14" r="3.4" fill="#DB6D20"/></svg><div><b>Produsert i Norge</b>Fredrikstad</div></div>
+    <div class="titem"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8.5c0 7-4.6 12.4-11 14.5C9.6 27.9 5 22.5 5 15.5V7z" fill="none" stroke="#0F2240" stroke-width="2"/><path d="M11 16l3.5 3.5L21 12" fill="none" stroke="#DB6D20" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>GMP-sertifisert anlegg</b>Interne og eksterne tester</div></div>
+    <div class="pay"><span>Sikker betaling</span><div class="logos" data-slot="PAY-01" title="PLASSHOLDER: betalingslogoer">
+      <i>Logo</i><i>Logo</i><i>Logo</i><i>Logo</i></div></div>
+  </div>
+</section>
+
+<!-- 12. DARK PHOTO BAND -->
+<section class="dband">
+  <div class="ph dk" data-slot="IMG-14"><span><b>IMG-14</b>Mann 40+ ved benkpressen, mørkt lys, høyre halvdel<br>700×220 / mobil bakgrunn</span></div>
+  <div class="dband-in">
+    <p class="k">VigroVital T-Powr:</p>
+    <h2>Du gjør jobben i treningsstudioet. T-Powr støtter kroppen innenfra.</h2>
+  </div>
+</section>
+
+<!-- 13. BENEFIT ROWS -->
+<section class="benefits">
+  <p class="intro-b">12 ingredienser, satt sammen for menn over 40 som trener. Dette bidrar de med:</p>
+  <div class="brows">
+    <div class="brow"><div class="ph" data-slot="IMG-15"><span><b>IMG-15</b>Mann 40+ ved benkpressen 1:1</span></div><div><h3>Byggesteiner for musklene du trener</h3><p>Magnesium bidrar til normal muskelfunksjon og proteinsyntese, som kan støtte muskelvedlikehold. Vitamin D bidrar til opprettholdelse av normal muskelfunksjon og normal funksjon av immunsystemet. Kombiner med push-ups, benkpress og roing to til tre ganger i uken.</p></div></div>
+    <div class="brow"><div class="ph" data-slot="IMG-16"><span><b>IMG-16</b>Mann 40+, selvsikker portrett 1:1</span></div><div><h3>Normale testosteronnivåer</h3><p>Sink bidrar til å opprettholde normale testosteronnivåer i blodet. T-Powr gir 10 mg sink, 100 % av referanseinntaket.</p></div></div>
+    <div class="brow"><div class="ph" data-slot="IMG-17"><span><b>IMG-17</b>Mann, rolig morgen 1:1</span></div><div><h3>Hormonaktivitet</h3><p>Vitamin B6 bidrar til regulering av hormonaktivitet. Vitamin B5 bidrar til normal syntese og metabolisme av steroidhormoner, vitamin D og noen nevrotransmittere. Maca støtter hormonbalansen.</p></div></div>
+    <div class="brow"><div class="ph" data-slot="IMG-18"><span><b>IMG-18</b>Mann på vei til trening etter jobb 1:1</span></div><div><h3>Energi og mindre tretthet</h3><p>Vitamin B5 bidrar til normal energimetabolisme. Vitamin B6 bidrar til normal psykologisk funksjon og reduksjon av tretthet og utmattelse.</p></div></div>
+    <div class="brow"><div class="ph" data-slot="IMG-19"><span><b>IMG-19</b>Par, hverdagsglede, påkledd 1:1</span></div><div><h3>Lyst og seksuell funksjon</h3><p>Shilajit støtter seksuell funksjon og utholdenhet. Maca forbedrer lyst og fruktbarhet. Selen bidrar til normal spermatogenese.</p></div></div>
+    <div class="brow"><div class="ph" data-slot="IMG-20"><span><b>IMG-20</b>Mann ute med venner 1:1</span></div><div><h3>Hode og humør</h3><p>Magnesium bidrar til normal psykologisk funksjon, som kan bidra til å opprettholde et positivt humør. Vitamin B6 bidrar til normal psykologisk funksjon, noe som kan ha en positiv effekt på humøret.</p></div></div>
+  </div>
+  <div class="cta-wrap"><a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a></div>
+</section>
+
+<!-- 14. EXPERT SECTION → MADE IN NORWAY -->
+<section class="expert">
+  <h2>Laget i Norge<span>Historien bak VigroVital T-Powr</span></h2>
+  <div class="exp-in">
+    <div class="exp-imgs">
+      <div class="ph main" data-slot="IMG-21"><span><b>IMG-21</b>Produksjonen i Fredrikstad (ekte foto)<br>348×326 / mobil 100%×260</span></div>
+      <div class="ph tall" data-slot="IMG-22"><span><b>IMG-22</b>Råvarer/kvalitetskontroll<br>169×300</span></div>
+      <div class="ph sm" data-slot="IMG-23"><span><b>IMG-23</b>Team<br>169×145</span></div>
+      <div class="ph sm" data-slot="IMG-24"><span><b>IMG-24</b>Fredrikstad<br>169×145</span></div>
+    </div>
+    <div class="exp-card">
+      <p class="k">VigroVital T-Powr er produsert i Fredrikstad, i et GMP-sertifisert anlegg.</p>
+      <p>Produktet gjennomgår strenge interne og eksterne tester og kvalitetskontroller.</p>
+      <p>T-Powr er utviklet for menn over 40, med tre tradisjonelle planter og seks vitaminer og mineraler i én daglig dose.</p>
+      <div class="gap"><strong>PLASSHOLDER – opprinnelseshistorie.</strong> PDP-en har kun fakta om Fredrikstad, GMP og testing. Legg inn dokumenterbare fakta her: hvem står bak, hvorfor T-Powr ble utviklet, årstall. Ingen personlige verdier, brukertall eller medieomtale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. INGREDIENT GRID -->
+<section class="ingr" id="ingredienser">
+  <h2>Her er de 12 ingrediensene i VigroVital T-Powr</h2>
+  <div class="igrid">
+    <div class="ing"><div class="ph round" data-slot="ING-01"><span><b>ING-01</b>Shilajit</span></div><h3>Shilajit</h3><p class="amt">250 mg</p><ul><li>Støtter seksuell funksjon og utholdenhet</li><li>Bidrar til fett- og sukkerstoffskiftet</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-02"><span><b>ING-02</b>Bukkehornkløver</span></div><h3>Bukkehornkløver</h3><p class="amt">300 mg</p><ul><li>Hjelper med å støtte og balansere fettmetabolismen</li><li>Støtter opprettholdelse av normalt glukosenivå i blodet</li><li>Bidrar til normal glukose- og insulinmetabolisme</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-03"><span><b>ING-03</b>Maca</span></div><h3>Maca</h3><p class="amt">150 mg</p><ul><li>Maca er kjent for sin evne til å øke energi, utholdenhet og seksuell funksjon</li><li>Den er rik på essensielle næringsstoffer</li><li>Støtter hormonbalansen</li><li>Forbedrer lyst og fruktbarhet</li><li>Den har blitt brukt tradisjonelt i Peru i tusenvis av år – og det er det en grunn til</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-04"><span><b>ING-04</b>Sink</span></div><h3>Sink</h3><p class="amt">10 mg (100 % RI)</p><ul><li>Sink bidrar til å opprettholde normale testosteronnivåer i blodet</li><li>Normal fruktbarhet og reproduksjon</li><li>Bidrar til normal karbohydratmetabolisme og normal metabolisme av fettsyrer</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-05"><span><b>ING-05</b>Magnesium</span></div><h3>Magnesium</h3><p class="amt">56,25 mg (15 % RI)</p><ul><li>Bidrar til normal muskelfunksjon og proteinsyntese, som kan støtte muskelvedlikehold</li><li>Bidrar til normal psykologisk funksjon, som kan bidra til å opprettholde et positivt humør</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-06"><span><b>ING-06</b>Vitamin B5</span></div><h3>Vitamin B5</h3><p class="amt">6 mg (100 % RI)</p><ul><li>Bidrar til normal syntese og metabolisme av steroidhormoner, vitamin D og noen nevrotransmittere</li><li>Bidrar til normal energimetabolisme</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-07"><span><b>ING-07</b>Vitamin B6</span></div><h3>Vitamin B6</h3><p class="amt">1,4 mg (100 % RI)</p><ul><li>Bidrar til regulering av hormonaktivitet</li><li>Bidrar til normal psykologisk funksjon og reduksjon av tretthet og utmattelse, noe som kan ha en positiv effekt på humøret</li><li>Bidrar til normal protein- og glykogenmetabolisme, og støtter den generelle energimetabolismen</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-08"><span><b>ING-08</b>Selen</span></div><h3>Selen</h3><p class="amt">55 µg (100 % RI)</p><ul><li>Bidrar til normal spermatogenese</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-09"><span><b>ING-09</b>Vitamin D3</span></div><h3>Vitamin D3</h3><p class="amt">2,5 µg (50 % RI)</p><ul><li>Bidrar til opprettholdelse av normal muskelfunksjon og normal funksjon av immunsystemet</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-10"><span><b>ING-10</b>L-taurin</span></div><h3>L-taurin</h3><p class="amt">50 mg</p><ul><li>Støtteingrediens i formelen</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-11"><span><b>ING-11</b>Haritaki</span></div><h3>Haritaki</h3><p class="amt">50 mg</p><ul><li>Støtteingrediens i formelen</li></ul></div>
+    <div class="ing"><div class="ph round" data-slot="ING-12"><span><b>ING-12</b>Sort pepper</span></div><h3>Sort pepper-ekstrakt</h3><p class="amt">1,5 mg</p><ul><li>Støtteingrediens i formelen</li></ul></div>
+  </div>
+  <div class="cta-wrap"><a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a></div>
+</section>
+
+<!-- 16. READY BAND → HOW TO USE -->
+<section class="ready" id="bruk">
+  <div class="ready-in">
+    <div class="combo">
+      <div class="ph dk p" data-slot="IMG-25"><span><b>IMG-25</b>T-Powr-eske, frilagt<br>200×330</span></div>
+      <div class="ph dk round c1" data-slot="IMG-26"><span><b>IMG-26</b>Mann tar kapsler etter frokost<br>185×185</span></div>
+      <div class="ph dk round c2" data-slot="IMG-27"><span><b>IMG-27</b>Mann gjør benkpress<br>185×185</span></div>
+    </div>
+    <div>
+      <h2>Gi treningen din noe å bygge videre på</h2>
+      <p>Fortsett å trene bryst og overkropp to til tre ganger i uken. Spis nok protein. Sov godt. Og ta 2 kapsler T-Powr daglig med et glass vann etter et måltid.</p>
+      <p><b>Laget for daglig bruk over tid. Opplevelsen er individuell.</b></p>
+      <p><b>Uten koffein og sentralstimulerende stoffer.</b> <span style="display:inline-block;background:#FFF4EC;color:#7a3a0c;border:1.5px dashed #DB6D20;border-radius:4px;padding:0 6px;font-size:12px;font-weight:700">BEKREFT FØR PUBLISERING</span></p>
+      <p>Ikke overskrid anbefalt dose. Kosttilskudd er ikke en erstatning for et balansert og variert kosthold og en sunn livsstil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 17. OFFER #2 (replaces buybox) -->
+<div class="ship">Du har gjort jobben i treningsstudioet. Gjør resten også</div>
+<section class="offer">
+  <div class="stepper" aria-label="Slik bestiller du">
+    <div class="step on"><span>Trykk på knappen</span><i>1</i></div>
+    <div class="step"><span>Fyll inn skjemaet</span><i>2</i></div>
+    <div class="step"><span>Motta T-Powr i posten</span><i>3</i></div>
+  </div>
+  <h2>Slik prøver du T-Powr</h2>
+  <div class="pcard">
+    <div class="pcard-h">VigroVital T-Powr</div>
+    <div class="pcard-img">
+      <div class="ph" data-slot="IMG-13"><span><b>IMG-13</b>T-Powr-eske, frilagt<br>264×200</span></div>
+      <div class="disc">12 i 1<span>FORMULA</span></div>
+    </div>
+    <p class="pname">12 ingredienser. 2 kapsler daglig.</p>
+    <a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a>
+    <ul class="mini">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="#0F2240" stroke-width="1.8"/><circle cx="12" cy="10" r="2.6" fill="#DB6D20"/></svg><span>Produsert i Norge</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h12v9H2zM14 10h4l3 3.2V16h-7z" fill="none" stroke="#0F2240" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.8" fill="#DB6D20"/><circle cx="17" cy="17.5" r="1.8" fill="#DB6D20"/></svg><span>Rask og diskret levering</span></li>
+    </ul>
+  </div>
+  <div class="tbox">
+    <div class="titem"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 9h16v12H3zM19 13h5l4 4.3V21h-9z" fill="none" stroke="#0F2240" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="23" r="2.4" fill="#DB6D20"/><circle cx="23" cy="23" r="2.4" fill="#DB6D20"/></svg><div><b>Rask og diskret levering</b></div></div>
+    <div class="titem"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s9-7.9 9-15a9 9 0 0 0-18 0c0 7.1 9 15 9 15z" fill="none" stroke="#0F2240" stroke-width="2"/><circle cx="16" cy="14" r="3.4" fill="#DB6D20"/></svg><div><b>Produsert i Norge</b>Fredrikstad</div></div>
+    <div class="titem"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8.5c0 7-4.6 12.4-11 14.5C9.6 27.9 5 22.5 5 15.5V7z" fill="none" stroke="#0F2240" stroke-width="2"/><path d="M11 16l3.5 3.5L21 12" fill="none" stroke="#DB6D20" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>GMP-sertifisert anlegg</b>Interne og eksterne tester</div></div>
+    <div class="pay"><span>Sikker betaling</span><div class="logos" data-slot="PAY-01" title="PLASSHOLDER: betalingslogoer">
+      <i>Logo</i><i>Logo</i><i>Logo</i><i>Logo</i></div></div>
+  </div>
+</section>
+
+<!-- 18. FAQ -->
+<section class="faq" id="faq">
+  <h2>Fortsatt usikker?<br>Her er spørsmålene vi oftest får om<span>VigroVital T-Powr</span></h2>
+  <div class="acc">
+    <details open><summary>Hva er VigroVital T-Powr?</summary><div class="a">
+      <p>Den nye generasjonen multi aktiv kosttilskudd. T-Powr inneholder 12 ingredienser:</p>
+      <ul><li>Shilajit, bukkehornkløver og maca</li><li>Sink, magnesium, vitamin B5, B6, D3 og selen</li><li>L-taurin, haritaki og sort pepper-ekstrakt</li></ul>
+      <p>Sink bidrar til å opprettholde normale testosteronnivåer i blodet, og vitamin B6 bidrar til regulering av hormonaktivitet.</p>
+    </div></details>
+    <details><summary>Fjerner T-Powr «mannepupper»?</summary><div class="a"><p>Nei. T-Powr er et kosttilskudd, ikke en behandling. Det er trening, kosthold og søvn som påvirker hvordan brystet ser ut.</p><p>T-Powr kommer i tillegg: Magnesium bidrar til normal muskelfunksjon og proteinsyntese, og sink bidrar til å opprettholde normale testosteronnivåer i blodet.</p><p>Er brystet ømt, hardt eller hovent, eller endrer det seg på bare én side, ta det opp med fastlegen.</p></div></details>
+    <details><summary>Hvem passer T-Powr for?</summary><div class="a"><p>T-Powr er utviklet for menn over 40 som trener, men passer for voksne menn i alle aldre som ønsker et daglig tilskudd med sink, B-vitaminer, magnesium, vitamin D, selen og tre tradisjonelle planter.</p></div></details>
+    <details><summary>Er T-Powr trygt for meg?</summary><div class="a"><div class="gap"><strong>PLASSHOLDER – advarsler og allergener.</strong> Legg inn produktets advarsler, allergener og fullstendig ingrediensliste (inkl. kapselmateriale) fra etiketten.</div></div></details>
+    <details><summary>Hvordan bruker jeg T-Powr?</summary><div class="a"><p>Ta 2 kapsler daglig med et glass vann etter et måltid. Ikke overskrid anbefalt dose. Kosttilskudd er ikke en erstatning for et balansert og variert kosthold og en sunn livsstil.</p></div></details>
+    <details><summary>Hvilke ingredienser er i formelen?</summary><div class="a"><p>Per daglig dose (2 kapsler): bukkehornkløver 300 mg, shilajit 250 mg, maca 150 mg, magnesium 56,25 mg (15 % RI), haritaki 50 mg, L-taurin 50 mg, sink 10 mg (100 % RI), vitamin B5 6 mg (100 % RI), sort pepper-ekstrakt 1,5 mg, vitamin B6 1,4 mg (100 % RI), selen 55 µg (100 % RI) og vitamin D3 2,5 µg (50 % RI).</p></div></details>
+    <details><summary>Hvordan bestiller jeg?</summary><div class="a"><p>Trykk «Prøv T-Powr nå» og fyll inn skjemaet. Så sender vi T-Powr til deg i posten, raskt og diskret.</p></div></details>
+    <details><summary>Hvor er T-Powr produsert?</summary><div class="a"><p>VigroVital T-Powr er produsert i Norge, nærmere bestemt i Fredrikstad, i et GMP-sertifisert anlegg. Produktet gjennomgår strenge interne og eksterne tester og kvalitetskontroller.</p></div></details>
+    <details><summary>Inneholder T-Powr koffein eller sentralstimulerende stoffer?</summary><div class="a"><div class="gap"><strong>PLASSHOLDER – må bekreftes.</strong> PDP-en sier ikke noe om koffein eller stimulanter. Svar her først når produktspesifikasjonen bekrefter det.</div></div></details>
+    <details><summary>Hvor lenge varer en boks?</summary><div class="a"><p>En boks inneholder 60 kapsler, som holder i 30 dager ved anbefalt dose.</p><div class="gap"><strong>BEKREFT:</strong> 60 kapsler er lest av emballasjen på PDP-bildet, ikke fra produktteksten.</div></div></details>
+    <details><summary>Hvorfor velge T-Powr?</summary><div class="a"><p>T-Powr samler tre tradisjonelle planter, seks vitaminer og mineraler og tre støtteingredienser i én daglig dose på to kapsler, produsert i Fredrikstad. Laget for daglig bruk over tid. Opplevelsen er individuell.</p></div></details>
+  </div>
+  <div class="cta-wrap"><a class="btn" href="https://vigrovital.com/no/t-powr#offer">Prøv T-Powr nå</a></div>
+  <p class="guar">Produsert i Fredrikstad, Norge</p>
+</section>
+
+</main>
+
+<!-- 19. FOOTER -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="about">
+      <div class="ph round" data-slot="IMG-01"><span>Logo</span></div>
+      <div><h4>Om VigroVital</h4><p>VigroVital T-Powr er den nye generasjonen multi aktiv kosttilskudd, produsert i Fredrikstad, Norge.</p></div>
+    </div>
+    <div><h4>Kundeservice</h4><ul>
+      <li><a href="https://vigrovital.com/no/kontakt-oss">Kontakt oss</a></li>
+      <li><a href="https://vigrovital.com/no/levering">Levering</a></li>
+      <li><a href="https://vigrovital.com/no/betaling">Betaling</a></li>
+      <li><a href="https://vigrovital.com/no/retur">Returer</a></li></ul></div>
+    <div><h4>Kundekonto</h4><ul>
+      <li><a href="https://vigrovital.com/no/customer/account/login">Logg inn</a></li>
+      <li><a href="https://vigrovital.com/no/customer/account/create">Opprett ny kundekonto</a></li>
+      <li><a href="https://vigrovital.com/no/customer/account/forgotpassword">Glemt passordet?</a></li></ul></div>
+    <div><h4>Juridisk</h4><ul>
+      <li><a href="https://vigrovital.com/no/vilkaar">Vilkår og betingelser</a></li>
+      <li><a href="https://vigrovital.com/no/personvern">Personvern</a></li></ul></div>
+  </div>
+  <div class="legal">
+    <p><b>VigroVital</b></p>
+    <p>Kosttilskudd er ikke en erstatning for et balansert og variert kosthold og en sunn livsstil. Ikke overskrid anbefalt dose.</p>
+    <p>2026 VigroVital</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var box=document.getElementById('ls'), out=document.getElementById('ls-res');
+  if(!box||!out) return;
+  var inputs=box.querySelectorAll('input');
+  function update(){
+    var n=0; inputs.forEach(function(i){ if(i.checked) n++; });
+    var t=inputs.length, msg;
+    if(n===0) msg='Trening, kosthold og søvn gjør jobben. <b>Et kosttilskudd kommer i tillegg, ikke i stedet.</b>';
+    else if(n<=4) msg='<b>'+n+' av '+t+'.</b> Start med to økter overkropp denne uken. Det er der forskjellen ligger.';
+    else if(n<=7) msg='<b>'+n+' av '+t+'.</b> Godt i gang. Nok protein og søvn er ofte det som mangler.';
+    else msg='<b>'+n+' av '+t+'.</b> Solid innsats. <b>Et kosttilskudd kommer i tillegg, ikke i stedet.</b>';
+    out.innerHTML=msg;
+  }
+  inputs.forEach(function(i){ i.addEventListener('change',update); });
+})();
+</script>
+</body>
+</html>
